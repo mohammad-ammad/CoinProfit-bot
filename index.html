@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <title>Price</title>
+    <style>
+      .terminal
+      {
+        background-color: rgb(46, 45, 45);
+        width: 100%;
+        height: 60vh;
+        padding: 0.8vmax;
+      }
+      .terminal > p 
+      {
+        color: aliceblue;
+        font-size: 0.8vmax;
+      }
+    </style>
+</head>
+<body>
+    
+    <div class="container my-5">
+        <div class="d-flex justify-content-between my-2">
+            <h3>Price Bot:</h3>
+            <button type="button" class="btn btn-success"
+            data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="modelOpen()" id="run">
+                Run Bot
+            </button>
+            <button class="btn btn-danger" id="stop">Stop</button>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                      <tr class="table-dark">
+                        <th scope="col">#</th>
+                        <th scope="col">Coin Name</th>
+                        <th scope="col">Chain</th>
+                        <th scope="col">Price Increase</th>
+                        <th scope="col">Volumn Increase</th>
+                        <th scope="col">Market Cap</th>
+                        <th scope="col">Circulating Supply</th>
+                        <th scope="col">Active Address</th>
+                        <th scope="col">Twitter Followers</th>
+                      </tr>
+                    </thead>
+                    <tbody id="table_body_one">
+                    </tbody>
+                  </table>
+            </div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-end" id="pagination_ul">
+                </ul>
+              </nav>
+        </div>
+
+        <div class="row" id="bot_container">
+          <h3>Bot Running for Coin <span id="coin_heading">(Bitcoin)</span> <span class="float-end" id="duration_heading">Duration:</span></h3>
+          <div class="terminal" id="terminal">
+          </div>
+            <div class="col-md-12 my-2">
+                <table class="table">
+                    <thead>
+                      <tr class="table-dark">
+                        <th scope="col">Day</th>
+                        <th scope="col">Coin Name</th>
+                        <th scope="col">Chain</th>
+                        <th scope="col">Price Increase</th>
+                        <th scope="col">Volumn Increase</th>
+                        <th scope="col">Market Cap</th>
+                        <th scope="col">Circulating Supply</th>
+                      </tr>
+                    </thead>
+                    <tbody id="iterate_result">
+                    </tbody>
+                    <tfoot>
+                      <td colspan="3" id="price_difference_td"></td>
+                      <td colspan="4" id="profit_td"></td>
+                    </tfoot>
+                  </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- model -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <form id="startMiner">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Bot Configurations</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Coin:</label>
+                      <select class="form-control" id="coinListSelector">
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Current Price:</label>
+                        <input type="text" class="form-control" id="cprice">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Minig Days:</label>
+                        <select class="form-control" id="days">
+                            <option>Select Days</option>
+                            <option value="1">1</option>
+                            <option value="3">3</option>
+                            <option value="5">5</option>
+                          </select>
+                    </div>
+    
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Start Mining</button>
+            </div>
+          </div>
+        </div>
+    </form>
+      </div>
+
+    
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+    <script src="mine.js"></script>
+</body>
+</html>
